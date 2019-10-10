@@ -1,71 +1,63 @@
 /*
 ** EPITECH PROJECT, 2019
-** header
+** der
 ** File description:
 ** derder
 */
 
-
-int     is_charac(char c)
+int count(char *str)
 {
-    if (c >= '0'&& c <= '9'|| (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')){
-        return(1);
-    }
-    return(0);
-}
-
-intcoumpt(char const *str)
-{
-    inta = 0;
-    intb = 0;
-    while (str[a] != '\0'){
-        if (is_charac(str[a]) == 1 && is_charac(str[a + 1]) != 1){
-            b = b + 1;
+    int i = 0;
+    int j = 0;
+    while (str[i] != '\0'){
+        if (charactere(str[i]) == 1 && charactere(str[i + 1]) != 1){
+            j++;
         }
-        a = a + 1;
+        i++;
     }
     return (b);
 }
 
-int len_of_word(char *str, int i)
+int lenw(char *str, int c)
 {
-    while (str[i] != '\0') {
-        if (is_charac(str[i]) != 1)
-            return (i);
-        i++;
+    while (str[c] != '\0') {
+        if (charactere(str[c]) != 1)
+            return (c);
+        c++;
     }
-    return (i);
+    return (c);
 }
 
-
-char **my_str_to_word_array(char const *str)
+int charactere(char k)
 {
-    int y = coumpt(str);
-    char**result = malloc(10000);
-    int a = 0;
-    int b = 0;
-    int c = 0;
+    if (k >= '0' && k <= '9' || (k >= 'A' && k <= 'Z')) {
+        return (1);
+    }
+    else if (k >= 'a' && k <= 'z') {
+        return (1);
+    }
+    return (0);
+}
 
+char **my_str_to_word_array(char *str)
+{
+    int k = count(str);
+    int i = 0;
+    int j = 0;
+    int l = 0;
+    char **result = malloc(sizeof(char *) * (k + 1));
 
-    while (b < y){
-        c = 0;
-        result[b] = malloc(100000);
-        while (str[a] != '\0' && is_charac(str[a]) != 0) {
-            result[b][c] = str[a];
-            c = c + 1;
-            a = a + 1;
+    while (j < y){
+        l = 0;
+        result[j] = malloc(sizeof(char) * lenw(str, i));
+        while (str[i] != '\0' && charactere(str[i]) != 0) {
+            result[j][l] = str[i];
+            l++;
+            i++;
         }
-        result[b][c] = '\n';
-        result[b][c + 1] = '\0';
-        a = a + 1;
-        b = b + 1;
+        result[j][l] = '\0';
+        i++;
+        j++;
     }
-    free(result);
     return (result);
-}
-
-int main()
-{
-    char zob = "oh jai un zob oui un zob";
-    my_str_to_word_array(zob);
 }
