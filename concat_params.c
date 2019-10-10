@@ -5,7 +5,6 @@
 ** header
 */
 
-#include "my.h"
 #include <stdlib.h>
 
 void my_putchar(char c);
