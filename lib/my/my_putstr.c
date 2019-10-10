@@ -7,9 +7,11 @@
 
 int my_putstr(char const *str)
 {
-    while (*str != '\0') {
-        my_putchar(*str);
-        str++;
+    int i = 0;
+
+    while (str[i] != '\0') {
+        my_putchar(str[i]);
+        i++;
     }
     return (1);
 }
