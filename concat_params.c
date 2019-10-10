@@ -38,6 +38,4 @@ char *concat_params(int argc, char **argv)
         i++;
     }
     return (str);
-}       
-                     
-            
+}
